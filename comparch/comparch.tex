@@ -94,14 +94,18 @@
       \end{itemize}
     \item{Examples}
       \begin{itemize}
-      \item{\textbf{NTLDR} - boot-loader for Windows NT/XP (resides in C:$\backslash$).} \pause
+      \item{\textbf{NTLDR} - boot-loader for Windows NT/2000/XP (resides in C:$\backslash$).} \pause
+      \item{\textbf{BOOTMGR} - boot-loader for Windows Vista/7/8/10 (resides in C:$\backslash$).} \pause
+	      \begin{itemize}
+          \item{Loads the C:$\backslash$Windows$\backslash$System32$\backslash$winload.exe who finally loads the kernel.}  \pause
+	      \end{itemize}
       \item{\textbf{GRUB} - one of boot-loaders for the Unix/Linux.} \pause
         % \item{Question: Who loads the boot-loader?} \pause
       \end{itemize}
-    \item{Bear in mind that} \pause
-      \begin{itemize}
-      \item{\textbf{The boot-loader is NOT part of the operating system.}}
-      \end{itemize}
+    %\item{Bear in mind that} \pause
+    %  \begin{itemize}
+    %  \item{\textbf{The boot-loader is NOT part of the operating system.}}
+    %  \end{itemize}
     \end{itemize}
   \end{frame}
 
@@ -202,7 +206,7 @@
   \begin{frame}
     \frametitle{I/O structure} \pause
     \begin{itemize}
-    \item{When CPU is doing I/O with a peripheral device, two methods is available:} \pause
+    \item{When CPU is doing I/O with a peripheral device, two methods are available:} \pause
       \begin{itemize}
       \item{(a) synchronous \footnote{Also known as blocking or non-overlapping I/O.} \pause and (b) asynchronous \footnote{Also known as non-blocking or overlapping I/O.} I/O.} \pause
       \end{itemize}
