@@ -150,7 +150,7 @@
     \item{When an interrupt occurs, CPU must know which device triggered it.} \pause
       \begin{itemize}
       \item{Computer system assigns each device an \emph{unique} interrupt request number (e.g., an 8-bit integer), or simply \textbf{IRQ}.} \pause
-      \item{The addresses of all ISRs are collected into a table called \textbf{interrupt vector}.} \pause
+      \item{The addresses of all ISRs are collected into a table called \textbf{interrupt vector table}, or simply \textbf{IVT}.} \pause
       \item{When servicing an interrupt, CPU uses IRQ to index the interrupt vector to fetch the address of ISR and branches to it.}
       \end{itemize}
     \end{itemize}
