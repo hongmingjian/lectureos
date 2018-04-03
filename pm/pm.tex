@@ -463,8 +463,8 @@
   \begin{itemize}
   \item{Termination. \pause Two kinds of termination:} \pause
     \begin{description}
-    \item[normal]{a process asks the operating system to delete it. For example, \emph{exit} in Linux/Unix and \emph{ExitProcess} in Windows.} \pause
-    \item[abnormal]{one process may be killed by another process by \emph{kill} in Linux/Unix and \emph{TerminateProcess} in Windows.} \pause
+    \item[normal]{a process asks the operating system to delete it. For example, \emph{exit} in Unix/Linux and \emph{ExitProcess} in Windows.} \pause
+    \item[abnormal]{one process may be killed by another process by \emph{kill} in Unix/Linux and \emph{TerminateProcess} in Windows.} \pause
     \end{description}
   \item{Communication \pause - facilities used by one process to communicate with another.} \pause
   \item{Cooperation \pause - cooperating processes need to synchronize their actions.}
@@ -763,7 +763,7 @@ while(1) {                            while(1) {
     \item{Named pipe} \pause
       \begin{itemize}
       \item{As an extension of unnamed pipe, it can be simplex or full-duplex and may be used by any process to communicate with each other.} \pause
-      \item{It can be permanent (as in Linux/Unix) or volatile (as in Windows).}
+      \item{It can be permanent (as in Unix/Linux) or volatile (as in Windows).}
       \end{itemize}
     \end{itemize}
   \end{itemize}
