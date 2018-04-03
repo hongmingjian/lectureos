@@ -29,6 +29,11 @@
 \usetheme{Madrid}%{Warsaw}
 \usecolortheme{crane}
 
+%gets rid of bottom navigation bars
+\setbeamertemplate{footline}[page number]{}
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
 \begin{document}
 \begin{CJK*}{UTF8}{song}
 
@@ -430,7 +435,7 @@
   \item{Creation \pause - a ``parent'' process spawns a ``child'' process.} \pause
     \begin{itemize}
     \item{Parent process create children processes, which, in turn create other processes, forming a tree of processes.} \pause
-    \item{For example, \emph{fork} in Linux/Unix and \emph{CreateProcess} in Windows.} \pause
+    \item{For example, \emph{fork} in Unix/Linux and \emph{CreateProcess} in Windows.} \pause
     \end{itemize}
   \end{itemize}
 \begin{lstlisting}
@@ -495,7 +500,7 @@
     \item[Modularity:]{Separate processes for different functions by design;} \pause
 %    \item[Convenience]{} \pause
     \end{description}
-  \item{However, concurrent execution of cooperating processes requires mechanisms that allow processes to communicated with one another and to synchronize their actions.}
+  \item{However, concurrent execution of cooperating processes requires mechanisms that allow processes to communicate with one another and to synchronize their actions.}
   \end{itemize}
   \end{frame}
 
@@ -783,7 +788,7 @@ while(1) {                            while(1) {
 
                  close(fd[0]);
                  exit(0);
-             } else {    /* Parent writes argv[1] to pipe */
+             } else {    /* Parent writes to pipe */
                  close(fd[0]);   /* Close unused read end */
                  write(fd[1], "Hello, child!", 13);
                  close(fd[1]);   /* Reader will see EOF */

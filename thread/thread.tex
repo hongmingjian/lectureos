@@ -29,6 +29,11 @@
 \usetheme{Madrid}%{Warsaw}
 \usecolortheme{crane}
 
+%gets rid of bottom navigation bars
+\setbeamertemplate{footline}[page number]{}
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
 \begin{document}
 \begin{CJK*}{UTF8}{song}
 
@@ -155,7 +160,7 @@
     \begin{itemize}
     \item{at user space for \textbf{user threads};} \pause
     \item{at the kernel for \textbf{kernel threads}.} \pause
-    \item{with a hybrid scheme by combining user- and kernel- threads.}
+    %\item{with a hybrid scheme by combining user- and kernel- threads.}
     \end{itemize}
   \end{itemize}
   \end{frame}
@@ -216,7 +221,8 @@
   \item{Examples} \pause
     \begin{itemize}
     \item{Windows NT/XP} \pause
-    \item{Solaris} \pause
+    \item{Modern Unix, such as Solaris, FreeBSD, etc} \pause
+    \item{Linux} \pause
     %\item{Tru64 UNIX} \pause
     \end{itemize}
   \item{Advantages and disadvantages} \pause
@@ -296,7 +302,7 @@
   \item{Win32} \pause
     \begin{itemize}
     \item{CreateThread, ExitThread and TerminateThread, etc.} \pause
-    \item{POSIX Threads for Win32 (http://sources.redhat.com/pthreads-win32)}
+    \item{\htmladdnormallink{Pthreads for Win32}{http://sources.redhat.com/pthreads-win32}}
     \end{itemize}
   \end{itemize}
   \end{frame}
@@ -346,8 +352,8 @@ void *runner(void *arg)
      for(i=1;i<=upper;i++)
         sum+=i;
 
-  pthread_exit(0);
-  //or return (void *)0;
+  return (void *)0;
+  //or pthread_exit(0);
 }
 \end{lstlisting}
 
@@ -396,8 +402,8 @@ DWORD WINAPI runner(LPVOID arg)
       for(i = 1; i <= upper; i++)
          sum += i;
 
-  ExitThread(0);
-  // or return 0L;
+  return 0L;
+  // or ExitThread(0);
 }
 \end{lstlisting}
 

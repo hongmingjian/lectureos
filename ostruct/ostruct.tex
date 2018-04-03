@@ -13,6 +13,11 @@
 \usetheme{Madrid}%{Warsaw}
 \usecolortheme{crane}
 
+%gets rid of bottom navigation bars
+\setbeamertemplate{footline}[page number]{}
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
 \begin{document}
 \begin{CJK*}{UTF8}{song}
 
@@ -352,7 +357,7 @@
 
   %% PAGE
   \begin{frame}
-    \frametitle{Virtual machine (1/4)} \pause
+    \frametitle{Virtual machine (1/5)} \pause
     \begin{itemize}
     \item{If we take a step further from micro-kernel,} \pause
       \begin{itemize}
@@ -365,7 +370,7 @@
   
   %% PAGE
   \begin{frame}
-    \frametitle{Virtual machine (2/4)} \pause
+    \frametitle{Virtual machine (2/5)} \pause
     \begin{itemize}
     \item{Virtual machine structure} \pause
     \end{itemize}
@@ -376,26 +381,17 @@
 
   %% PAGE
   \begin{frame}
-    \frametitle{Virtual machine (3/4)} \pause
-    \begin{itemize}
-    \item{Examples} \pause
-      \begin{itemize}
-      \item{IBM VM/370} \pause
-      \item{\htmladdnormallink{Xen}{http://www.xenproject.org/}} \pause
-      \item{\htmladdnormallink{KVM (Kernel-based Virtual Machine)}{http://www.linux-kvm.org/page/Main\_Page}} \pause
-      \end{itemize}
-    \end{itemize}
-  \end{frame}
-  
-  \iffalse
-
-  %% PAGE
-  \begin{frame}
     \frametitle{Virtual machine (3/5)} \pause
     \begin{itemize}
     \item{Usually, virtual machines can be classified into two kinds:} \pause
       \begin{itemize}
-      \item{\textbf{Hardware virtual machines} \pause - explained above} \pause
+      \item{\textbf{Hardware virtual machines}} \pause
+        \begin{itemize}
+		\item{VM/370 from IBM} \pause
+		\item{\htmladdnormallink{Xen}{http://www.xenproject.org/} from Cambridge University} \pause
+		\item{\htmladdnormallink{KVM}{http://www.linux-kvm.org/page/Main\_Page} (Kernel-based Virtual Machine) for Linux} \pause
+		\item{\htmladdnormallink{VMware}{https://www.vmware.com/}, \htmladdnormallink{VirtualBox}{https://www.virtualbox.org/}, \htmladdnormallink{QEMU}{https://www.qemu.org/}, \htmladdnormallink{Bochs}{http://bochs.sourceforge.net/}, etc} \pause
+		\end{itemize}
       \item{\textbf{Application virtual machines} \pause - a piece of computer software that isolates the application being used by the user from the computer. } \pause
         \begin{itemize}
         \item{Example: Sun microsystem's Java Virtual Machine (JVM).}
@@ -404,7 +400,6 @@
     \end{itemize}
   \end{frame}
   
-
   %% PAGE
   \begin{frame}
     \frametitle{Virtual machine (4/5)} \pause
@@ -413,15 +408,15 @@
       \begin{itemize}
       \item{\textbf{Emulation} \pause - the virtual machine simulates the complete hardware, allowing an unmodified operating system for a completely different CPU to run.} \pause
         \begin{itemize}
-        \item{Examples: VMware, VirtualPC, open-source Bochs, etc.} \pause
+        \item{Examples: VMware, VirtualBox, QEMU, Bochs, etc.} \pause
         \end{itemize}
       \item{\textbf{Paravirtualization} \pause - the virtual machine does not simulate hardware but instead offers a special API that requires operating system modifications to run.} \pause
         \begin{itemize}
-        \item{Examples: Open-source \textbf{Xen} from Cambridge University.} \pause
+        \item{Examples: \textbf{Xen}} \pause
         \end{itemize}
       \item{\textbf{Native (Full) virtualization} \pause - the virtual machine only partially simulates enough hardware to allow an unmodified operating system to run in isolation, but the \textbf{guest} operating system must be designed for the same type of CPU} \pause
         \begin{itemize}
-        \item{Examples: Open-source KVM (Kernel-based Virtual Machine) for Linux and IBM VM/370}
+        \item{Examples: KVM and VM/370}
           % \begin{center}
           %   \includegraphics[scale=0.2]{mosv2f1-26} \pause
           % \end{center}
@@ -430,11 +425,10 @@
     \end{itemize}
   \end{frame}
 
-  \fi
   
   %% PAGE
   \begin{frame}
-    \frametitle{Virtual machine (4/4)} \pause
+    \frametitle{Virtual machine (5/5)} \pause
     \begin{itemize}
     \item{Advantage and disadvantage of virtual machine} \pause
       \begin{itemize}
