@@ -68,7 +68,7 @@
     \end{tabular}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Bridge crossing example} \pause
@@ -85,7 +85,7 @@
   \end{frame}
 
 \section{System model}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{System model} \pause
@@ -100,11 +100,11 @@
     \begin{enumerate}
     \item{\textbf{Request} \pause - If the request cannot be granted immediately, then the requesting process must wait until it can acquire the resource;} \pause
     \item{\textbf{Use} \pause - The process is using the resource;} \pause
-    \item{\textbf{Release} \pause - The process releases the resources.} 
+    \item{\textbf{Release} \pause - The process releases the resources.}
     \end{enumerate}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Deadlock characterization} \pause
@@ -118,7 +118,7 @@
     \end{itemize}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Resource-allocation graph (1/3)} \pause
@@ -136,7 +136,7 @@
     \end{itemize}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Resource-allocation graph (2/3)} \pause
@@ -159,7 +159,7 @@
     \end{center}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Resource-allocation graph (3/3)} \pause
@@ -170,7 +170,7 @@
     \includegraphics[scale=0.5]{v6f8-1}
   \end{center}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Deadlock and resource-allocation graph} \pause
@@ -193,37 +193,20 @@
   \end{minipage}
   \end{frame}
 
-\section{Methods of handling deadlock}
-  
-  %% PAGE
-  \begin{frame}
-  \frametitle{Methods of handling deadlock} \pause
-  \begin{enumerate}
-  \item{We can design a protocol to prevent or avoid deadlocks, ensuring that the system will \emph{never} enter a deadlock state;} \pause
-  \item{We can allow the system to enter a deadlock state, detect it, and recover from it;} \pause
-  \item{We can ignore the problem altogether, and pretend that deadlocks never occur in the system.} \pause
-    \begin{itemize}
-    \item{This solution is used by \emph{most} operating systems, including Windows and Unix.} \pause
-    \item{Because the deadlocks occur very rarely and the deadlock-prevention, deadlock-avoidance or deadlock-detection and recovery algorithms are \emph{costly}.} \pause
-    \item{It's a trade-off between \emph{convenience} and \emph{correctness}.}
-    \end{itemize}
-  \end{enumerate}
-  \end{frame}
-  
   %% PAGE
   \begin{frame}
   \frametitle{Questions}
-  \begin{itemize}
-  \item{Any questions?}
-  \end{itemize}
-  \begin{center}
-    \includegraphics[scale=.5]{question}
-  \end{center}
+    \begin{itemize}
+	  \item{Any questions?}
+    \end{itemize}
+    \begin{center}
+	  \includegraphics[scale=.5]{question}
+    \end{center}
   \end{frame}
-  
 
-  \iffalse
+\section{Methods of handling deadlock}
 
+\subsection{Deadlock prevention}
 
   %% PAGE
   \begin{frame}
@@ -245,7 +228,7 @@
     \end{itemize}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Deadlock prevention (2/4)} \pause
@@ -260,7 +243,7 @@
     \end{itemize}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Deadlock prevention (3/4)} \pause
@@ -273,17 +256,18 @@
       \item{It cannot generally be applied to to such resources as printers and tape drives.}
       \end{itemize}
     \end{itemize}
-  \end{itemize}
-  \end{frame}
-  
-  %% PAGE
-  \begin{frame}
-  \frametitle{Deadlock prevention (4/4)} \pause
-  \begin{itemize}
   \item{Attacking ``circular wait''} \pause
     \begin{itemize}
     \item{We can impose a total ordering of all resource types, and require that each process requests resources in an increasing order of enumeration.} \pause
     \end{itemize}
+  \end{itemize}
+  \end{frame}
+
+\iffalse
+
+  \begin{frame}
+  \frametitle{Deadlock prevention (4/4)} \pause
+  \begin{itemize}
   \item{Summary} \pause
     \newline
     \begin{center}
@@ -301,7 +285,9 @@
     \end{center}
   \end{itemize}
   \end{frame}
-  
+
+\fi
+
   %% PAGE
   \begin{frame}
   \frametitle{Questions}
@@ -309,10 +295,12 @@
   \item{Any questions?}
   \end{itemize}
   \begin{center}
-    \includegraphics[scale=.8]{question}
+    \includegraphics[scale=.5]{question}
   \end{center}
   \end{frame}
-  
+
+\subsection{Deadlock avoidance}
+
   %% PAGE
   \begin{frame}
   \frametitle{Deadlock avoidance} \pause
@@ -327,7 +315,7 @@
     \end{itemize}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Safe state (1/2)} \pause
@@ -344,15 +332,15 @@
   \item{Deadlock avoidance must ensure that a system will never enter an unsafe state.}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Safe state (2/2)} \pause
   \begin{center}
-    \includegraphics[scale=1]{v6f8-4}
+    \includegraphics[scale=0.5]{v6f8-4}
   \end{center}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Banker's algorithm} \pause
@@ -365,7 +353,7 @@
   \item{It requires that a new process must declare the maximum number of instances of each resource type that it may need.}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Banker's algorithm: data structure} \pause
@@ -386,7 +374,7 @@
     \end{itemize}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Banker's algorithm: Safety detection} \pause
@@ -405,7 +393,7 @@
   \item{This algorithm requires an order of $m \times n^2$ operations for safety detection.}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Banker's algorithm: Resource-request (1/2)} \pause
@@ -416,7 +404,7 @@
     \end{itemize}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Banker's algorithm: Resource-request (2/2)} \pause
@@ -433,7 +421,7 @@
     }
   \end{enumerate}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Banker's algorithm: example (1/3)} \pause
@@ -455,7 +443,7 @@
     $P_4$   & 4 3 3 & 0 0 2      &      \\
   \end{tabular}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Banker's algorithm: example (2/3)} \pause
@@ -476,7 +464,7 @@
   \item{The system is in a safe state since the sequence $<P_1, P_3, P_4, P_2, P_0>$ satisfies safety criteria.}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Banker's algorithm: example (3/3)} \pause
@@ -507,7 +495,7 @@
     \end{itemize}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Questions}
@@ -515,10 +503,12 @@
   \item{Any questions?}
   \end{itemize}
   \begin{center}
-    \includegraphics[scale=.8]{question}
+    \includegraphics[scale=.5]{question}
   \end{center}
   \end{frame}
-  
+
+\subsection{Deadlock detection and recovery}
+
   %% PAGE
   \begin{frame}
   \frametitle{Deadlock detection and recovery} \pause
@@ -531,7 +521,7 @@
     \end{itemize}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Deadlock detection algorithm} \pause
@@ -547,7 +537,7 @@
     \end{itemize}
   \end{enumerate}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Deadlock detection algorithm: example (1/2)} \pause
@@ -572,7 +562,7 @@
   \item{Sequence $<P_0, P_2, P_3, P_1, P_4>$ will result in $Finish[i] = true$ for all $i$.}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Deadlock detection algorithm: example (2/2)} \pause
@@ -596,7 +586,7 @@
     \end{itemize}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Deadlock detection algorithm: Usage} \pause
@@ -608,7 +598,7 @@
     \end{enumerate}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Questions}
@@ -616,10 +606,10 @@
   \item{Any questions?}
   \end{itemize}
   \begin{center}
-    \includegraphics[scale=.8]{question}
+    \includegraphics[scale=.5]{question}
   \end{center}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Recovery from deadlock} \pause
@@ -641,7 +631,7 @@
   \item{Both of them are NOT easy.}
   \end{itemize}
   \end{frame}
-  
+
   %% PAGE
   \begin{frame}
   \frametitle{Questions}
@@ -649,14 +639,38 @@
   \item{Any questions?}
   \end{itemize}
   \begin{center}
-    \includegraphics[scale=.8]{question}
+    \includegraphics[scale=.5]{question}
   \end{center}
   \end{frame}
 
+  \subsection{Ostrich algorithm}
 
-  \fi
+  %% PAGE
+  \begin{frame}
+  \frametitle{Ostrich algorithm} \pause
+  \begin{itemize}
+	%\item{We can design a protocol to prevent or avoid deadlocks, ensuring that the system will \emph{never} enter a deadlock state;} \pause
+	%\item{We can allow the system to enter a deadlock state, detect it, and recover from it;} \pause
+	\item{We can ignore the problem altogether, and pretend that deadlocks never occur in the system.} \pause
+	\begin{itemize}
+		\item{This solution is used by \emph{most} operating systems, including Windows and Unix/Linux.} \pause
+		\item{Because the deadlocks occur very rarely and the deadlock-prevention, deadlock-avoidance or deadlock-detection and recovery algorithms are \emph{costly}.} \pause
+		\item{It's a trade-off between \emph{convenience} and \emph{correctness}.}
+	\end{itemize}
+  \end{itemize}
+  \end{frame}
 
-  
+  %% PAGE
+  \begin{frame}
+  \frametitle{Questions}
+  \begin{itemize}
+	\item{Any questions?}
+  \end{itemize}
+  \begin{center}
+	\includegraphics[scale=.5]{question}
+\end{center}
+\end{frame}
+
   %% PAGE
 \end{CJK*}
 \end{document}
