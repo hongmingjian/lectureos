@@ -383,9 +383,17 @@ while(1) {                            while(1) {
     \begin{itemize}
     \item{Once a process has disabled interrupts, it can access the shared memory without fear that any other process will intervene.} \pause
     \end{itemize}
+  \item{Example - INTEL x86} \pause
+    \begin{itemize}
+	\item{CLI (\textbf{cl}ear \textbf{i}nterrupt) - turn off interrupt} \pause
+	\item{STI (\textbf{s}e\textbf{t} - \textbf{i}nterrupt) turn on interrupt} \pause
+    \end{itemize}
   \item{Disadvantages} \pause
     \begin{enumerate}
     \item{User processes should NOT be able to disable the interrupts;} \pause
+      \begin{itemize}
+	  \item{CLI/STI are both privileged instructions} \pause
+	  \end{itemize}
     \item{It's not feasible in a multiprocessor system.}
     \end{enumerate}
   \end{itemize}
