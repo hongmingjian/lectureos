@@ -187,8 +187,8 @@
         legal, but we have not yet brought in that page, we now page it in;} \pause
     \item{We find a free frame;} \pause
     \item{We schedule a disk operation to read the desired page into the newly allocated frame} \pause
-    \item{When the disk read is complete, we modify the internal table kept with the process and the page table to indicate that the page is now in memory;} \pause
-    \item{We restart the instruction that was interrupted by the page-fault trap. The process can now access the page as if it had always been in memory.}
+    \item{When the disk read is complete, we modify the page table kept with the process to indicate that the page is now in memory;} \pause
+    \item{We restart the instruction that was interrupted by the page-fault trap. The process can now access the page \textbf{as if} it had always been in memory.}
     \end{enumerate}
   \end{frame}
   

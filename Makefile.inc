@@ -21,9 +21,9 @@ $(LECTURE)_handout.pdf: $(LECTURE)_handout.tex $(EXTRADEPENDS)
 
 release: $(LECTURE).pdf $(LECTURE)_handout.pdf
 	@pdftk $(LECTURE).pdf output $(LECTURE)_slide.pdf owner_pw "$(shell apg -n 1 -m 12)" encrypt_128bit allow
-	@rm -f $(LECTURE).pdf
+	@$(RM) -f $(LECTURE).pdf
 	@pdftk $(LECTURE)_handout.pdf output $(LECTURE)_print.pdf owner_pw "$(shell apg -n 1 -m 12)" encrypt_128bit allow Printing
-	@rm -f $(LECTURE)_handout.pdf
+	@$(RM) -f $(LECTURE)_handout.pdf
 
 clean:
 	-$(RM) *.pdf *.aux *.log *.out *_handout.* *.bak *.nav *.snm *.toc *.vrb
