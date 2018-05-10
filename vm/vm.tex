@@ -504,28 +504,39 @@
     \end{center}
   \end{frame}
  
-  \subsection{Locality model}
+  \subsection{Thrashing}
   
   %% PAGE
   \begin{frame}
-    \frametitle{Performance} \pause
+  \frametitle{Thrashing (1/2)} \pause
+  \begin{itemize}\parskip=0pt
+  \item{\emph{Page-fault rate}: $0\leq p \leq 1.0$} \pause
     \begin{itemize}
-    \item{\emph{Page-fault rate}: $0\leq p \leq 1.0$} \pause
-      \begin{itemize}
-      \item{if $p=0$, no page faults;} \pause
-      \item{if $p=1$, every reference causes a fault.} \pause
-      \end{itemize}
-    \item{Effective access time (EAT)\\$EAT=(1-p)\times$(memory  access time)$ + p \times $(page fault time)} \pause
-    \item{In general, memory access time is far less than the time to handle the page fault.} \pause
-      \begin{itemize}
-      \item{So, we can assume that $EAT$ is proportional to $p$, i.e., the page-fault rate.}
-      \end{itemize}
+    \item{if $p=0$, no page faults;} \pause
+    \item{if $p=1$, every reference causes a fault.} \pause
     \end{itemize}
+  \item{Effective access time (EAT)\\$=(1-p)\times$(memory  access time)$ + p \times $(page fault time)\\ $\approx p \times $(page fault time)} \pause
+  \item{If a system does not have ``enough'' frames, the page-fault rate is very high. This leads to:} \pause
+  \begin{itemize}
+  \item{Low CPU utilization.} \pause
+  \item{The admission scheduler thinks that it needs to increase the degree of multiprogramming.} \pause
+  \item{More processes are added to the system.} \pause
+  \end{itemize}
+  \item{\emph{Thrashing} is a situation where a system is busy bringing pages in and out and does nothing useful.}
+  \end{itemize}
+  \end{frame}
+
+  %% PAGE
+  \begin{frame}
+  \frametitle{Thrashing (2/2)} \pause
+  \begin{center}
+  \includegraphics[scale=0.3]{v6f10-15}
+  \end{center}
   \end{frame}
   
   %% PAGE
   \begin{frame}
-    \frametitle{Why does virtual memory works well?} \pause
+    \frametitle{Why thrashing?} \pause
     \begin{itemize}
     \item{The principle behind the scene} \pause
       \begin{itemize}
@@ -533,49 +544,20 @@
         \begin{itemize}
         \item{\emph{Locality} is defined as a set of pages that are actively used in the system.} \pause
         \item{\emph{Process migrates from one locality to another}.} \pause
+            \begin{center}
+            \includegraphics[scale=.2]{v6f10-16} \pause
+            \end{center}
           % \begin{itemize}
           % \item{Localities may overlap.} \pause
           % \end{itemize}
         \end{itemize}
+        \item{Locality model is also the reason why the caches work well.} \pause
       \end{itemize}
-    \item{Locality model is also the reason why the caches work well.}
-    \end{itemize}
-  \end{frame}
-  
-  %% PAGE
-  \begin{frame}
-    \frametitle{Locality model} \pause
-    \begin{center}
-      \includegraphics[scale=.3]{v6f10-16}
-    \end{center}
-  \end{frame}
-  
-  %% PAGE
-  \begin{frame}
-    \frametitle{Thrashing (1/2)} \pause
-    \begin{itemize}\parskip=0pt
-    \item{If a system does not have ``enough'' frames, the page-fault rate is very high. This leads to:} \pause
+    \item{Why does thrashing occurs?} \pause
       \begin{itemize}
-      \item{Low CPU utilization.} \pause
-      \item{The long-term scheduler thinks that it needs to increase the degree of multiprogramming.} \pause
-      \item{More processes are added to the system.} \pause
-      \end{itemize}
-    \item{\emph{Thrashing} is a situation where a system is busy bringing pages in and out and does nothing useful.} \pause
-      \begin{itemize}
-      \item{Why does thrashing occurs?} \pause
-        \begin{itemize}
-        \item{$\sum{size\ of\ locality} > total\ memory\ size$}
-        \end{itemize}
+      \item{$\sum{size\ of\ locality} > total\ memory\ size$}
       \end{itemize}
     \end{itemize}
-  \end{frame}
-  
-  %% PAGE
-  \begin{frame}
-    \frametitle{Thrashing (2/2)} \pause
-    \begin{center}
-      \includegraphics[scale=0.3]{v6f10-15}
-    \end{center}
   \end{frame}
   
   %% PAGE
@@ -593,7 +575,7 @@
   \begin{frame}
     \frametitle{Working-set model (1/2)} \pause
     \begin{itemize}
-    \item{The \emph{working-set model} is based on the assumption of locality.} \pause
+    \item{The \emph{working-set model} is an approximation of the locality model.} \pause
       \begin{itemize}
       \item{It defines a parameter named \emph{working-set window}, $\Delta$, to be the number of page references.} \pause
       \item{The set of pages in the most recent $\Delta$ page references is the \emph{working-set}.} \pause
@@ -694,10 +676,10 @@
         \begin{itemize}
         \item{中文版：深入解析Windows操作系统（第6版），潘爱民、范德成 译} \pause
         \end{itemize}
-      \item{Jeffrey Richter, \htmladdnormallink{\emph{Programming Applications for Microsoft Windows}}{http://www.microsoft.com/mspress/books/2345.aspx}, 4th Edition, Microsoft Press, 1999.} \pause
-        \begin{itemize}
-        \item{中文版：Windows核心编程（第4版），王建华 译}
-        \end{itemize}      
+%      \item{Jeffrey Richter, \htmladdnormallink{\emph{Programming Applications for Microsoft Windows}}{http://www.microsoft.com/mspress/books/2345.aspx}, 4th Edition, Microsoft Press, 1999.} \pause
+%        \begin{itemize}
+%        \item{中文版：Windows核心编程（第4版），王建华 译}
+%        \end{itemize}
       \end{itemize}
     \end{itemize}
   \end{frame}
@@ -709,8 +691,6 @@
       \includegraphics[scale=0.4]{2kplayout}
     \end{center}
   \end{frame}
-
-\iffalse
   
   %% PAGE
   \begin{frame}
@@ -720,17 +700,18 @@
     \end{center}
   \end{frame}
 
-\fi
-  
   %% PAGE
   \begin{frame}[fragile]
     \frametitle{User space layout of Windows 20000 Professional} \pause
     \begin{itemize}\parskip=0pt
-    \item{Command \textbf{VMMap.EXE $<$pid$>$} can be used to dump the user space layout of a Windows process} \pause
-      \begin{itemize}
-      \item{\emph{VMMap.EXE} can be found in the companion CD of the book \htmladdnormallink{\emph{Programming Applications for Microsoft Windows}}{http://www.microsoft.com/mspress/books/2345.aspx}.} \pause
-      \end{itemize}
+    \item{Program \htmladdnormallink{VMMap}{https://docs.microsoft.com/en-us/sysinternals/downloads/vmmap} can be used to dump the user space layout of a Windows process} \pause
     \end{itemize}
+    \begin{center}
+		\includegraphics[scale=0.3]{vmmap}
+	\end{center}
+
+\iffalse
+
     {\tiny
 \begin{verbatim}
     00010000 Private       4096  1  -RW-
@@ -753,6 +734,9 @@
     7C920000 Image       606208  5  ERWC C:\WINDOWS\system32\ntdll.dll
 \end{verbatim}
     }
+
+\fi
+
 \end{frame}
   
 \iffalse
@@ -1038,7 +1022,7 @@
   \begin{frame}
     \frametitle{Relocation of shared libraries in Windows} \pause
     \begin{itemize}
-    \item{In Microsoft Visual Studio, the shared libraries are statically bound to the address 0x10000000 by default.} \pause
+    \item{In Microsoft Visual Studio, the shared libraries are statically bound to the address \htmladdnormallink{\emph{0x10000000}}{https://blogs.msdn.microsoft.com/oldnewthing/20121227-00/?p=5713/} by default.} \pause
       \begin{itemize}
       \item{If an application uses several shared libraries which are all bound to the same preferred address, relocation is inevitable.} \pause
       \end{itemize}
