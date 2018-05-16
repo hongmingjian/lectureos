@@ -320,7 +320,7 @@
   \begin{frame}
   \frametitle{Safe state (1/2)} \pause
   \begin{itemize}
-  \item{When a process requests an available resource, system must decide if immediate allocation leaves the system in a \emph{safe state}.} \pause
+  \item{Definition} \pause
     \begin{itemize}
     \item{System is in safe state if there exists a safe sequence of all processes $<P_0, P_1, ..., P_n>$ such that for each $P_i$, the resources that $P_i$ can still request can be satisfied by currently available resources plus resources held by all the $P_j$, with $j<i$.} \pause
     \end{itemize}
@@ -329,17 +329,13 @@
     \item{If a system is in safe state, no deadlocks;} \pause
     \item{If a system is in unsafe state,  possibility of deadlock.} \pause
     \end{itemize}
-  \item{Deadlock avoidance must ensure that a system will never enter an unsafe state.}
+  \item{Deadlock avoidance must ensure that a system will never enter an unsafe state.} \pause
   \end{itemize}
-  \end{frame}
-
-  %% PAGE
-  \begin{frame}
-  \frametitle{Safe state (2/2)} \pause
   \begin{center}
-    \includegraphics[scale=0.5]{v6f8-4}
+	\includegraphics[scale=0.2]{v6f8-4}
   \end{center}
   \end{frame}
+
 
   %% PAGE
   \begin{frame}
@@ -350,7 +346,13 @@
     \item{It's invented by Dijkstra in 1968 and used on the \textbf{THE} operating system.} \pause
     \item{It can be used in a banking system to ensure that the bank never allocates its available cash such that it can no longer satisfy the needs of all its customers.} \pause
     \end{itemize}
-  \item{It requires that a new process must declare the maximum number of instances of each resource type that it may need.}
+  \item{It requires that a new process must declare the maximum number of instances of each resource type that it may need.} \pause
+  \item{This algorithm requires an order of $m \times n^2$ operations for safety detection.} \pause
+  \begin{itemize}
+	\item{m: The number of resource types} \pause
+	\item{n: The number of processes}
+  \end{itemize}
+
   \end{itemize}
   \end{frame}
 
@@ -389,9 +391,6 @@
   \item{$Work = Work + Allocation_i$; $Finish[i] = true$; \newline go to step 2.} \pause
   \item{If $Finish[i] = true$ for all $i$, then the system is in a safe state.} \pause
   \end{enumerate}
-  \begin{itemize}
-  \item{This algorithm requires an order of $m \times n^2$ operations for safety detection.}
-  \end{itemize}
   \end{frame}
 
   %% PAGE
