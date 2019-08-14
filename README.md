@@ -1,2 +1,2 @@
 # 《操作系统原理》课件
-开课学院：重庆大学 大数据与软件学院
+教材：[操作系统概念 Operating System Concepts](http://os-book.com/)
