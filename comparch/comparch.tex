@@ -258,12 +258,12 @@
 
   %% PAGE
   \begin{frame}
-    \frametitle{How CPU accesses peripheral devices?} \pause
+    \frametitle{How does CPU access peripheral devices?} \pause
     \begin{itemize}
     \item{CPU accesses devices through device controllers.} \pause
       \begin{itemize}
       \item{Device controllers include registers to hold commands and the data being transferred.} \pause
-      \item{How CPU accesses these registers?} \pause
+      \item{How does CPU access these registers?} \pause
       \end{itemize}
     \item{Two methods:} \pause
       \begin{itemize}
@@ -335,7 +335,7 @@
       \item{Why not access these registers using the same method as memory?} \pause
       \item{In this case, a (unique) \textbf{memory address} is assigned to every register,\textbf{NOT a port address}.} \pause
       \end{itemize}
-    \item{That's the memory-mapped I/O.} \pause
+    \item{That's the Memory-Mapped I/O(MMIO).} \pause
       \begin{itemize}
       \item{Memory-mapped I/O uses the same bus to address both memory and I/O devices} \pause
       \item{In order to accommodate the I/O devices, areas of CPU addressable space must be reserved for I/O rather than memory.}
