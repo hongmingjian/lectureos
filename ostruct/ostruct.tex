@@ -357,7 +357,7 @@
 
   %% PAGE
   \begin{frame}
-    \frametitle{Virtual machine (1/5)} \pause
+    \frametitle{Virtual machine (1/4)} \pause
     \begin{itemize}
     \item{If we take a step further from micro-kernel,} \pause
       \begin{itemize}
@@ -370,36 +370,52 @@
   
   %% PAGE
   \begin{frame}
-    \frametitle{Virtual machine (2/5)} \pause
+    \frametitle{Virtual machine (2/4)} \pause
     \begin{itemize}
     \item{Virtual machine structure} \pause
     \end{itemize}
     \begin{center}
-      \includegraphics[scale=0.6]{v6f3-11} \pause
+      \includegraphics[scale=0.6]{v6f3-11}
     \end{center}
   \end{frame}
 
   %% PAGE
   \begin{frame}
-    \frametitle{Virtual machine (3/5)} \pause
+    \frametitle{Virtual machine (3/4)} \pause
     \begin{itemize}
-    \item{Usually, virtual machines can be classified into two kinds:} \pause
-      \begin{itemize}
+    %\item{Usually, virtual machines can be classified into two kinds:} \pause
+      %\begin{itemize}
       \item{\textbf{Hardware virtual machines}} \pause
         \begin{itemize}
-		\item{VM/370 from IBM} \pause
-		\item{\htmladdnormallink{Xen}{http://www.xenproject.org/} from Cambridge University} \pause
-		\item{\htmladdnormallink{KVM}{http://www.linux-kvm.org/page/Main\_Page} (Kernel-based Virtual Machine) for Linux} \pause
-		\item{\htmladdnormallink{VMware}{https://www.vmware.com/}, \htmladdnormallink{VirtualBox}{https://www.virtualbox.org/}, \htmladdnormallink{QEMU}{https://www.qemu.org/}, \htmladdnormallink{Bochs}{http://bochs.sourceforge.net/}, etc} \pause
-		\end{itemize}
+    		\item{\textbf{Native (Full) virtualization} \pause - only partially simulates enough hardware to allow an \textbf{unmodified} operating system to run in isolation, but the \textbf{guest} operating system must be designed for the \textbf{same} type of CPU} \pause
+    			\begin{itemize}
+    			\item{VM/370 from IBM} \pause
+    			\item{\htmladdnormallink{KVM}{http://www.linux-kvm.org/page/Main\_Page} (Kernel-based Virtual Machine) for Linux} \pause
+    			\end{itemize}
+			
+      		\item{\textbf{Paravirtualization} \pause - does not simulate hardware but instead offers a special API that requires  \textbf{guest}  operating system \textbf{modifications} to run.} \pause
+		 	\begin{itemize}
+			\item{\htmladdnormallink{Xen}{http://www.xenproject.org/} from Cambridge University} \pause
+		 	\end{itemize}
+		 
+              	\item{\textbf{Emulation} \pause - simulates the complete hardware, allowing an \textbf{unmodified} operating system for a completely \textbf{different} CPU to run.} \pause
+                		\begin{itemize}
+                		\item{\htmladdnormallink{VMware}{https://www.vmware.com/}, \htmladdnormallink{Parallels}{https://www.parallels.com/}, \htmladdnormallink{VirtualBox}{https://www.virtualbox.org/}, \htmladdnormallink{QEMU}{https://www.qemu.org/},  \htmladdnormallink{MAME}{https://www.mamedev.org/}, etc} \pause
+                		\end{itemize}
+
+	\end{itemize}
+     
       \item{\textbf{Application virtual machines} \pause - a piece of computer software that isolates the application being used by the user from the computer. } \pause
         \begin{itemize}
-        \item{Example: Sun microsystem's Java Virtual Machine (JVM).}
+        \item{Example: Oracle(Sun microsystem) Java Virtual Machine (JVM).}
         \end{itemize}
-      \end{itemize}
+        
+      %\end{itemize}
     \end{itemize}
+    
   \end{frame}
   
+\iffalse  
   %% PAGE
   \begin{frame}
     \frametitle{Virtual machine (4/5)} \pause
@@ -408,7 +424,7 @@
       \begin{itemize}
       \item{\textbf{Emulation} \pause - the virtual machine simulates the complete hardware, allowing an unmodified operating system for a completely different CPU to run.} \pause
         \begin{itemize}
-        \item{Examples: VMware, VirtualBox, QEMU, Bochs, etc.} \pause
+        \item{Examples: VMware, Parallels, VirtualBox, QEMU, etc.} \pause
         \end{itemize}
       \item{\textbf{Paravirtualization} \pause - the virtual machine does not simulate hardware but instead offers a special API that requires operating system modifications to run.} \pause
         \begin{itemize}
@@ -424,11 +440,11 @@
       \end{itemize}
     \end{itemize}
   \end{frame}
-
+\fi
   
   %% PAGE
   \begin{frame}
-    \frametitle{Virtual machine (5/5)} \pause
+    \frametitle{Virtual machine (4/4)} \pause
     \begin{itemize}
     \item{Advantage and disadvantage of virtual machine} \pause
       \begin{itemize}
