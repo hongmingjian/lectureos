@@ -22,7 +22,7 @@ $(LECTURE)_handout.pdf: $(LECTURE)_handout.tex $(EXTRADEPENDS)
 release: $(LECTURE).pdf $(LECTURE)_handout.pdf
 	@pdftk $(LECTURE).pdf output $(LECTURE)_slide.pdf owner_pw "$(shell pwgen -1s 12)" encrypt_128bit allow
 	@$(RM) -f $(LECTURE).pdf
-	@pdftk $(LECTURE)_handout.pdf output $(LECTURE)_print.pdf owner_pw "$(shell pwgen -1s 12)" encrypt_128bit allow Printing
+	@pdftk $(LECTURE)_handout.pdf output $(LECTURE)_print.pdf owner_pw "$(shell pwgen -1s 12)" encrypt_128bit allow Printing ModifyAnnotations
 	@$(RM) -f $(LECTURE)_handout.pdf
 
 clean:
