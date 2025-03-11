@@ -20,9 +20,9 @@ $(LECTURE).pdf: $(LECTURE).tex $(EXTRADEPENDS)
 $(LECTURE)_handout.pdf: $(LECTURE)_handout.tex $(EXTRADEPENDS)
 
 release: $(LECTURE).pdf $(LECTURE)_handout.pdf
-	@apg -n 1 -m 12 | pdftk $(LECTURE).pdf output $(LECTURE)_slide.pdf owner_pw PROMPT encrypt_128bit allow
+	@pdftk $(LECTURE).pdf output $(LECTURE)_slide.pdf owner_pw "$(shell pwgen -1s 12)" encrypt_128bit allow
 	@$(RM) -f $(LECTURE).pdf
-	@apg -n 1 -m 12 | pdftk $(LECTURE)_handout.pdf output $(LECTURE)_print.pdf owner_pw PROMPT encrypt_128bit allow Printing
+	@pdftk $(LECTURE)_handout.pdf output $(LECTURE)_print.pdf owner_pw "$(shell pwgen -1s 12)" encrypt_128bit allow Printing
 	@$(RM) -f $(LECTURE)_handout.pdf
 
 clean:
